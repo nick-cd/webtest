@@ -1,0 +1,24 @@
+<form (ngSubmit)="submit()">
+  UserName:
+  <input type="text" pattern="\w+" id="username" name="username" required [(ngModel)]="userData.username" #username="ngModel" />
+  <br />
+  Password:
+  <input type="password" pattern="\w+" id="password" name="password" required [(ngModel)]="userData.password" #password="ngModel" />
+
+  <br />
+  <input type="submit" />
+
+  <div *ngIf="username.errors?.pattern">
+    Username: Bad Characters
+  </div>
+  <div *ngIf="username.errors?.required">
+    Username: Required
+  </div>
+
+  <div *ngIf="password.errors?.pattern">
+    Password: Bad Characters
+  </div>
+  <div *ngIf="password.errors?.required">
+    Password: Required
+  </div>
+</form>

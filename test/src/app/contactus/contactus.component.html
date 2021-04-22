@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()">
+  Name:
+  <input type="text" pattern="\w+" id="name" name="name" required [(ngModel)]="contactData.name" #name="ngModel" />
+  <br />
+  Email:
+  <input type="email" pattern="\w+" id="email" name="email" required [(ngModel)]="contactData.email" #email="ngModel" email />
+  <br />
+  Message:
+  <input type="text" pattern="\w+" id="message" name="message" required [(ngModel)]="contactData.message" #message="ngModel" />
+  <br />
+
+  <div *ngIf="name.errors?.pattern">
+    Username: Bad Characters
+  </div>
+
+  <div *ngIf="email.errors?.pattern">
+    Password: Bad Characters
+  </div>
+
+  <div *ngIf="message.errors?.pattern">
+    Password: Bad Characters
+  </div>
+
+</form>
