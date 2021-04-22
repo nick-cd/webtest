@@ -1,4 +1,28 @@
+<h1>Contact Us</h1>
+
 <form (ngSubmit)="onSubmit()">
+
+  <div *ngIf="name.errors?.pattern">
+    Username: Bad Characters
+  </div>
+  <div *ngIf="name.errors?.required">
+    Username: Required
+  </div>
+
+  <div *ngIf="email.errors?.pattern">
+    Password: Bad Characters
+  </div>
+  <div *ngIf="email.errors?.required">
+    Password: Required
+  </div>
+
+  <div *ngIf="message.errors?.pattern">
+    Password: Bad Characters
+  </div>
+  <div *ngIf="message.errors?.required">
+    Password: Required
+  </div>
+
   Name:
   <input type="text" pattern="\w+" id="name" name="name" required [(ngModel)]="contactData.name" #name="ngModel" />
   <br />
@@ -8,17 +32,5 @@
   Message:
   <input type="text" pattern="\w+" id="message" name="message" required [(ngModel)]="contactData.message" #message="ngModel" />
   <br />
-
-  <div *ngIf="name.errors?.pattern">
-    Username: Bad Characters
-  </div>
-
-  <div *ngIf="email.errors?.pattern">
-    Password: Bad Characters
-  </div>
-
-  <div *ngIf="message.errors?.pattern">
-    Password: Bad Characters
-  </div>
 
 </form>

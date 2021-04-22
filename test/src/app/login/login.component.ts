@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router"
 
 export class User {
   username: String;
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   userData: User;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.userData = {
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-
+    this.router.navigate(['/contactus']);
   }
 
 }
